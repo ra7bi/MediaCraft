@@ -21,7 +21,13 @@ It also checks your save folder before starting, so a missing drive gets you a c
 
 ## Install
 
-There's no ready-made installer yet, so for now you build it yourself. You'll need [Node.js](https://nodejs.org) and [Rust](https://rustup.rs) 1.87 or newer.
+**[Download the latest installer](https://github.com/ra7bi/MediaCraft/releases/latest)** and run it. It's about 2 MB and doesn't need admin rights.
+
+Windows SmartScreen will probably warn you, because the installer isn't code-signed. Signing certificates cost money, and this project is free. If you're happy to continue, choose **More info**, then **Run anyway**. Each release lists its SHA-256 checksum so you can check your download, and if you'd rather not trust my build, you can make your own.
+
+### Build it yourself
+
+You'll need [Node.js](https://nodejs.org) and [Rust](https://rustup.rs) 1.87 or newer.
 
 ```bash
 git clone https://github.com/ra7bi/MediaCraft.git
@@ -39,7 +45,7 @@ npm install
 npm run tauri build
 ```
 
-The installer lands in `src-tauri/target/release/bundle/nsis/`. It's about 2 MB and doesn't need admin rights.
+The installer lands in `src-tauri/target/release/bundle/nsis/`.
 
 ## The first time you open it
 
