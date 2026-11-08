@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediaCraft</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">MediaCraft</div>
+      <form id="url-form" class="url-form">
+        <input id="url" type="text" placeholder="Paste a video or playlist link" autocomplete="off" spellcheck="false" aria-label="Video or playlist link" />
+        <button id="paste" type="button" class="ghost">Paste</button>
+        <button id="analyze" type="submit" class="primary">Analyze</button>
+      </form>
+      <button id="open-components" type="button" class="ghost">Components<span id="components-dot" class="dot" hidden></span></button>
+      <button id="open-settings" type="button" class="ghost">Settings</button>
+      <button id="open-about" type="button" class="ghost">About</button>
+    </header>
+
+    <div id="banner" class="banner" role="alert" hidden></div>
+
+    <main>
+      <section id="analyzer" class="card" hidden></section>
+
+      <section class="queue">
+        <div class="queue-head">
+          <h2>Downloads <span id="queue-count" class="muted"></span></h2>
+          <div class="queue-tools">
+            <button id="pause-all" type="button" class="ghost small" hidden>Pause all</button>
+            <button id="resume-all" type="button" class="ghost small" hidden>Resume all</button>
+            <button id="cancel-all" type="button" class="ghost small danger" hidden>Cancel all</button>
+            <label class="inline">At once
+              <select id="concurrency" aria-label="Downloads at once">
+                <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                <option value="4">4</option><option value="6">6</option><option value="8">8</option>
+              </select>
+            </label>
+            <button id="clear" type="button" class="ghost small">Clear finished</button>
+          </div>
+        </div>
+        <ul id="jobs" class="jobs"></ul>
+        <p id="empty" class="empty">Paste a link above to get started.</p>
+      </section>
+    </main>
+
+    <dialog id="components">
+      <h2>Components</h2>
+      <p class="muted">MediaCraft uses these open-source tools. Downloads come only from their official releases, and each is checked against its published checksum.</p>
+      <div id="tools-list" class="tools-list"></div>
+      <div class="dialog-actions"><button id="close-components" type="button" class="primary">Close</button></div>
+    </dialog>
+
+    <dialog id="settings">
+      <h2>Settings</h2>
+      <p class="muted">Changes save straight away and apply to your next download.</p>
+      <div id="settings-body" class="settings-body"></div>
+      <div class="dialog-actions"><button id="close-settings" type="button" class="primary">Close</button></div>
+    </dialog>
+
+    <dialog id="about" class="about">
+      <div id="about-logo" class="about-logo" aria-hidden="true"></div>
+      <h2 class="about-line about-title">MediaCraft <span id="about-version" class="muted"></span></h2>
+      <p class="about-line about-tag">Videos go in. Files come out. Nobody gets hurt.</p>
+      <p class="about-line">
+        Crafted in Oman
+        <svg class="flag" viewBox="0 0 24 12" role="img" aria-label="Flag of Oman">
+          <rect width="24" height="12" fill="#c8102e" />
+          <rect x="8" width="16" height="4" fill="#ffffff" />
+          <rect x="8" y="8" width="16" height="4" fill="#008000" />
+        </svg>
+        by <strong>Mr.Coder</strong>: Developer, Chief Tester, and the entire Customer Support department.
+      </p>
+      <p class="about-line">Because we all love free, I decided to open source this. You're welcome. Powered by too much karak and not enough sleep.</p>
+      <p class="about-line">yt-dlp and FFmpeg do the heavy lifting. I take the credit.</p>
+      <p class="about-line about-small">Download responsibly. If the video isn't yours, that's between you and its owner. I was never here.</p>
+      <div class="dialog-actions about-actions">
+        <button id="open-source" type="button" class="ghost">Source code</button>
+        <button id="close-about" type="button" class="primary">Close</button>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
